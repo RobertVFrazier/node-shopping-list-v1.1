@@ -24,11 +24,18 @@ Recipes.create(
   'boiled white rice', ['1 cup white rice', '2 cups water', 'pinch of salt']);
 Recipes.create(
   'milkshake', ['2 tbsp cocoa', '2 cups vanilla ice cream', '1 cup milk']);
-
+  Recipes.create(
+    'chocolate milk', ['cocoa', 'milk', 'sugar']);
+  
+  
 // when the root of this router is called with GET, return
 // all current ShoppingList items
 app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
+});
+
+app.get('/recipes', (req, res) => {
+  res.json(Recipes.get());
 });
 
 app.post('/shopping-list', jsonParser, (req, res) => {

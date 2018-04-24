@@ -5,7 +5,7 @@ const uuid = require('uuid');
 // so for now we're using in-memory storage. This means each time
 // the app stops, our storage gets erased.
 
-// don't worry to much about how `ShoppingList` and `Recipes`
+// don't worry too much about how `ShoppingList` and `Recipes`
 // are implemented. Our concern in this example is with how
 // the API layer is implemented, and getting it to use an
 // existing model.
@@ -32,15 +32,15 @@ const ShoppingList = {
     return Object.keys(this.items).map(key => this.items[key]);
   },
   delete: function(id) {
-    console.log(`Deleting shopping list item \`${id}\``);
+    console.log(`Deleting shopping list item '${id}'`);
     delete this.items[id];
   },
   update: function(updatedItem) {
-    console.log(`Updating shopping list item \`${updatedItem.id}\``);
+    console.log(`Updating shopping list item '${updatedItem.id}'`);
     const {id} = updatedItem;
     if (!(id in this.items)) {
       throw StorageException(
-        `Can't update item \`${id}\` because doesn't exist.`)
+        `Can't update item '${id}' because doesn't exist.`)
     }
     this.items[updatedItem.id] = updatedItem;
     return updatedItem;
@@ -77,7 +77,7 @@ const Recipes = {
     const {id} = updatedItem;
     if (!(id in this.items)) {
       throw StorageException(
-        `Can't update item \`${id}\` because doesn't exist.`)
+        `Can't update item '${id}' because doesn't exist.`)
     }
     this.items[updatedItem.id] = updatedItem;
     return updatedItem;
